@@ -21,6 +21,7 @@
 
     muteCheckbox.addEventListener("change", () => {
       localStorage.setItem("muted", muteCheckbox.value);
+      console.log(muteCheckbox.value)
     });
 
     testButton.addEventListener("click", () => {
