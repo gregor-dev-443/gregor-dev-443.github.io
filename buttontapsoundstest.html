@@ -20,7 +20,11 @@
     const testButton = document.getElementById("test-button");
 
     muteCheckbox.addEventListener("change", () => {
-      localStorage.setItem("muted", muteCheckbox.checked);
+      if (muteCheckbox.checked) {
+        localStorage.setItem("muted", "on");
+      } else {
+        localStorage.removeItem("muted");
+      }
     });
 
     testButton.addEventListener("click", () => {
