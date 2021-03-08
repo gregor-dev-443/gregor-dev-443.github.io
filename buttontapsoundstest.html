@@ -20,15 +20,20 @@
     const testButton = document.getElementById("test-button");
 
     muteCheckbox.addEventListener("change", () => {
+      console.log("checkbox state has changed");
       if (muteCheckbox.checked) {
+        console.log("checked");
         localStorage.setItem("muted", "on");
       } else {
+        console.log("not checked");
         localStorage.removeItem("muted");
       }
     });
 
     testButton.addEventListener("click", () => {
+      console.log("button was clicked");
       if (!localStorage.getItem("muted")) {
+        console.log("sound gets played");
         tapSound.play();
       }
     });
