@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test for button tap sounds</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <h1>Test for button tap sounds</h1>
+  <p>
+    <input type="checkbox" id="mute-checkbox" check />
+    <label for="mute-checkbox">Mute</label>
+  </p>
+  <p>
+    <button id="test-button">Test</button>
+  </p>
+  <audio id="tap-sound" src="https://opengameart.org/sites/default/files/Menu%20Selection%20Click.wav"></audio>
+  <script>
+    const muteCheckbox = document.getElementById("mute-checkbox");
+    const tapSound = document.getElementById("tap-sound");
+    const testButton = document.getElementById("test-button");
+
+    muteCheckbox.addEventListener("change", () => {
+      localStorage.setItem("muted", muteCheckbox.value);
+    });
+
+    testButton.addEventListener("click", () => {
+      if (!localStorage.getItem("muted")) {
+        tapSound.play();
+      }
+    });
+  </script>
+</body>
+</html>
